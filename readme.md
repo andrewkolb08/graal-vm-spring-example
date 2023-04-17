@@ -43,9 +43,9 @@ mvn -Pnative compile
 then, you can convert the created jar to a native executable using the following in the top-level project directory:
 ``` bash
 rm -rf target/native
-mkdir -p target/native
-cd target/native
-jar -xvf ../myproject-0.0.1-SNAPSHOT.jar
+mkdir native
+cd native
+jar -xvf ../graal-vm-example-0.0.1-SNAPSHOT.jar
 native-image -H:Name=graal-vm-example  -cp .:BOOT-INF/classes:`find BOOT-INF/lib | tr '\n' ':'`
 mv graal-vm-example ../
 ```
@@ -53,5 +53,5 @@ mv graal-vm-example ../
 then execute it using the following in the project directory:
 ```bash
 ./target/graal-vm-example
-````
+```
 
